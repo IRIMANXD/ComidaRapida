@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/icon.png" type="">
+
+  <title> Dashboard </title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="d-flex flex-column bg-light p-3 vh-100" id="sidebar">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex align-items-center">
+        <i class="fas fa-building me-2"></i>
+        <span class="fw-bold fs-5">FAST FOOD</span>
+      </div>
+      <button class="btn btn-outline-secondary d-md-none" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div>
+      <h6 class="text-uppercase text-muted small">Navegación</h6>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link active">
+            <i class="fas fa-building me-2"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-users me-2"></i> Restaurantes
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-cog me-2"></i> Configuración
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-auto text-center small">© 2025</div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content ms-md-4 p-3">
+    <!-- Header -->
+    <header class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-secondary me-3 d-md-none" id="mobileToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1 class="h4 mb-0">Dashboard</h1>
+      </div>
+      <button class="btn btn-primary" id="addRestaurantBtn">
+        <i class="fas fa-plus me-2"></i> Agregar Restaurante
+      </button>
+    </header>
+
+    <div class="content">
+      <!-- Estadísticas -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>Total Restaurantes</span>
+                <i class="fas fa-building"></i>
+              </div>
+              <h4 id="totalRestaurants">3</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>Activos</span>
+                <i class="fas fa-users"></i>
+              </div>
+              <h4 id="activeRestaurants" class="text-success">2</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>Total Sucursales</span>
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 id="totalBranches">4</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>Este Mes</span>
+                <i class="fas fa-calendar"></i>
+              </div>
+              <h4 id="newThisMonth" class="text-primary">+3</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de búsqueda -->
+      <div class="mb-4">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+          <input type="text" id="searchInput" class="form-control" placeholder="Buscar restaurantes...">
+        </div>
+      </div>
+
+      <!-- Grid de restaurantes -->
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center">
+                <span class="me-2">🍗</span>Sacha braza
+              </h5>
+              <span class="badge bg-success mb-2">Activo</span>
+              <span class="badge bg-secondary mb-2">Estándar</span>
+              <p class="card-text">Local especializado en pollos a la brasa, hamburguesas, alitas..</p>
+              <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Tarapoto</p>
+              <p class="mb-1"><i class="fas fa-store me-2"></i>1 sucursales</p>
+              <p class="mb-1"><i class="fas fa-calendar me-2"></i>Desde 11 de mayo de 2025</p>
+              <a href="#" class="btn btn-outline-primary w-100 mt-2"><i class="fas fa-eye me-2"></i>Ver Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center">
+                <span class="me-2">🍕</span>Pizzamia
+              </h5>
+              <span class="badge bg-success mb-2">Activo</span>
+              <span class="badge bg-secondary mb-2">Estándar</span>
+              <p class="card-text">Pizzería con tradición italiana. Conocida por sus pizzas artesanales y ambiente acogedor.</p>
+              <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Tarapoto</p>
+              <p class="mb-1"><i class="fas fa-store me-2"></i>2 sucursales</p>
+              <p class="mb-1"><i class="fas fa-calendar me-2"></i>Desde 24 de mayo de 2025</p>
+              <a href="#" class="btn btn-outline-primary w-100 mt-2"><i class="fas fa-eye me-2"></i>Ver Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center">
+                <span class="me-2">🌮</span>Alifuego
+              </h5>
+              <span class="badge bg-secondary mb-2">Inactivo</span>
+              <span class="badge bg-purple mb-2">Premium</span>
+              <p class="card-text">Comida rápida. Especialistas en alitas y broaster.</p>
+              <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Morales</p>
+              <p class="mb-1"><i class="fas fa-store me-2"></i>1 sucursales</p>
+              <p class="mb-1"><i class="fas fa-calendar me-2"></i>Desde 2 de enero de 2025</p>
+              <a href="#" class="btn btn-outline-primary w-100 mt-2"><i class="fas fa-eye me-2"></i>Ver Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estado vacío -->
+      <div class="text-center py-5 d-none" id="emptyState">
+        <i class="fas fa-building fa-3x text-muted mb-3"></i>
+        <h3>No se encontraron restaurantes</h3>
+        <p id="emptyMessage" class="text-secondary">Comienza agregando tu primer restaurante</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+
+
+</html>
