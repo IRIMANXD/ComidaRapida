@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	
+</head>
+<body>
+	<div class="main">  
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form onsubmit="return validarLogin(event)">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="text" name="txt" id="usuario" placeholder="Usuario" required="">
+					<input type="password" name="pswd" id="password" placeholder="Password" required="">
+					<button type="submit">Iniciar Sesion</button>
+                    <a href="registrarse.html" style="color: white; display: flex; justify-content: center;">Registrarse</a>
+					<a href="index.html" style="color: white; display: flex; justify-content: center;">Volver al Principal</a>
+				</form>
+			</div>
+	</div>
+
+	<script>
+		function validarLogin(event) {
+			event.preventDefault();  // Evita el envío del formulario para hacer la validación
+
+			// Obtener los valores de los campos
+			var usuario = document.getElementById('usuario').value;
+			var password = document.getElementById('password').value;
+
+			// Validar si los valores coinciden con "admin"
+			if (usuario === "admin" && password === "admin") {
+				// Redirigir a marco.html si es correcto
+				window.location.href="index.html"
+			} else {
+				alert("Usuario o contraseña incorrectos");
+			}
+		}
+	</script>
+</body>
+</html>

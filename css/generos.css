@@ -1,0 +1,120 @@
+h1 {
+    color: #6a1b9a;
+    text-align: center;
+    margin-bottom: 30px;
+}
+        
+.menu-container {
+    display: block;
+    gap: 15px;
+    margin-bottom: 15px;
+    max-width: 1200px;
+}
+
+.menu-option {
+        color: #ffffff;
+        cursor: pointer;
+        background-color: #1a73e8;
+        user-select: none;
+        transition: all 0.3s;
+        position: relative;
+        padding-left: 40px;
+}
+        
+        
+.menu-option.active {
+    background-color: #ab47bc;
+    color: white;
+}
+        
+.menu-option .arrow {
+    position: absolute;
+    left: 15px;
+    transition: transform 0.3s;
+    font-size: medium;
+    margin-top: 7px;
+}
+        
+.menu-option.active .arrow {
+    transform: rotate(90deg);
+}
+        
+.content-container {
+    background-color: white;
+    border-radius: 10px;
+    min-height: 30px;
+    display: none;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 800px;
+}
+        
+.content-container.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in;
+}
+        
+.content-section {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+        
+.content-section.show {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    animation: fadeIn 0.3s ease-in;
+}
+        
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+        
+        /* Estilo para Géneros */
+        .genre-box {
+            background-color: #f3e5f5;
+            border-radius: 8px;
+            padding: 2px;
+            transition: transform 0.2s;
+        }
+        
+        .genre-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .genre-name {
+            font-weight: bold;
+            color: #7b1fa2;
+        }
+        
+        .subgenre-item {
+            color: #555;
+            padding: 4px 0;
+            font-size: 0.9em;
+        }
+        
+        /* Estilo para Categorías */
+        .category-list {
+            list-style-type: none;
+        }
+        
+        .category-item {
+            padding: 7px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        
+        .category-item:hover {
+            background-color: #f3e5f5;
+            color: #9c27b0;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .content-section.show {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }

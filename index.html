@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRIMANnovel</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles1.css">
+    <link rel="stylesheet" href="css/styles3.css">
+    <link rel="stylesheet" href="css/generos.css">
+
+    <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Header con el nombre de la página, buscador y lista de novelas -->
+    <header class="header">
+        
+        <div class="menu-container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a href="#" class="logo">IRIMANnovel</a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mx-auto ">
+                        <div class="menu-option" id="categoriesToggle">
+                            <span class="arrow">▶</span> <p>Lista de Novelas</p>
+                        </div>
+                                
+                        <div class="menu-option" id="genresToggle">
+                            <span class="arrow">▶</span> <p>Géneros</p>
+                        </div>
+                            
+                        <li class="nav-links">
+                            <a href="login.html">Iniciar Sección/Registrarse</a>
+                        </li>
+                    </ul>
+                        
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Buscar novelas..." onkeyup="filterNovels()">
+                        <button>🔍</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenedor de géneros, inicialmente oculto -->
+        <div class="content-container" id="mainContent">
+        <!-- Sección de Géneros -->
+        <div class="content-section" id="genresContent">
+            <div class="genre-box">
+                <div class="genre-name">Acción</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Cambio de género</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Psicológico</div>
+            </div>
+            
+             <div class="genre-box">
+                <div class="genre-name">Un trozo de vida</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Adulto</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Harén</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Reencarnación</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Tizón</div>
+            </div>
+            
+            <div class="genre-box">
+                <div class="genre-name">Aventura</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Histórico</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Romance</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Deportes</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Comedia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Horror</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Vida escolar</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Sobrenatural</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">masia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Drama</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Josei</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Ciencia ficción</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Tragedia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Oriental</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Artes marciales</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Seinen</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Wuxia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Ecchi</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Maduro</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Shojo</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Xianxia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Fantasía</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Mecha</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Shounen Ai</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Xuanhuan</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Juego</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Misterio</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Shounen</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Yaoi</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Sistemática</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">KILLI THESUN</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Jopella</div>
+            </div>
+        </div>
+        
+        <!-- Sección de Categorías -->
+        <div class="content-section" id="categoriesContent">
+            <ul class="category-list">
+                <li class="category-item">Novelas populares</li>
+                <li class="category-item">Recién actualizadas</li>
+                <li class="category-item">Top semanal</li>
+                <li class="category-item">Completadas</li>
+                <li class="category-item">Recomendaciones</li>
+                <li class="category-item">Novelas cortas</li>
+                <li class="category-item">Clásicos</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenedor de las novelas -->
+    <div class="container">
+        <div class="novel-card" data-title="Otros suben de nivel, pero yo sigo con el cultivo!"> 
+            <a href="nove/nove1/novela1.html" class="button">
+                <div class="novel-info">
+                    <img src="img/portada1.png" alt="Portada de novela">
+                    <h3>¡Otros suben de nivel, pero yo sigo con el cultivo!</h3>
+                    <p class="rating">⭐⭐⭐⭐☆</p>
+                    <p class="genre">Novela China - Oriental , Fantasía , Acción , Aventura</p>
+                    <p class="chapters">1066 capítulos</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="novel-card" data-title="Destrozaré todo con habilidades pasivas">
+            <a href="nove/novela2.html" class="button">
+                <div class="novel-info">
+                    <img src="img/portada2.png" alt="button">
+                    <h3>Destrozaré todo con habilidades pasivas</h3>
+                    <p class="rating">⭐⭐⭐⭐⭐</p>
+                    <p class="genre">Novela Coreana - Fantasía , Acción , Harén , Reencarnación</p>
+                    <p class="chapters">105 capítulos</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="novel-card" data-title="30 años después de reencarnar, ¡resulta que este mundo era un Rofan!">
+            <img src="img/portada3.png" alt="Portada de novela">
+            <h3>30 años después de reencarnar, ¡resulta que este mundo era un Rofan!</h3>
+            <p class="rating">⭐⭐⭐⭐☆</p>
+            <p class="genre">Novela Coreana - Acción , Aventura , Comedia , Drama , Fantasía , Harén , Artes Marciales , Recuentos de la Vida</p>
+            <p class="chapters">273 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="Mi sistema de vampiros">
+            <img src="img/portada4.png" alt="Portada de novela">
+            <h3>Mi sistema de vampiros</h3>
+            <p class="rating">⭐⭐⭐⭐☆</p>
+            <p class="genre">Novela Inglesa - Acción , Fantasía , Misterio</p>
+            <p class="chapters">2551 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="Deseo único: El ascenso del Paragón omnisciente">
+            <img src="img/portada5.png" alt="Portada de novela">
+            <h3>Deseo único: El ascenso del Paragón omnisciente</h3>
+            <p class="rating">⭐⭐⭐⭐☆</p>
+            <p class="genre">Novela Inglesa - Fantasía , Romance , Acción , Harén , Comedia , Tragedia</p>
+            <p class="chapters">667 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="El primer maestro de bestias legendario">
+            <img src="img/portada6.png" alt="Portada de novela">
+            <h3>El primer maestro de bestias legendario</h3>
+            <p class="rating">⭐⭐⭐⭐☆</p>
+            <p class="genre">Novela Inglesa - Fantasía , Harén , Adultos , Comedia , Acción , Aventura</p>
+            <p class="chapters">946 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="El toque mecánico">
+            <img src="img/portada7.png" alt="Portada de novela">
+            <h3>El toque mecánico</h3>
+            <p class="rating">⭐⭐⭐⭐⭐</p>
+            <p class="genre">Novela Inglesa - Ciencia ficción , fantasía , aventura , acción</p>
+            <p class="chapters">6923 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="El linaje lo es todo">
+            <img src="img/portada8.png" alt="Portada de novela">
+            <h3>El linaje lo es todo</h3>
+            <p class="rating">⭐⭐⭐⭐⭐</p>
+            <p class="genre">Novela Coreana - Acción , Aventura , Drama , Fantasía , Artes Marciales</p>
+            <p class="chapters">76 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="Me convertí en jefe de incursión">
+            <img src="img/portada9.png" alt="Portada de novela">
+            <h3>Me convertí en jefe de incursión</h3>
+            <p class="rating">⭐⭐⭐⭐⭐</p>
+            <p class="genre">Novela Coreana - Acción , Aventura , Drama , Fantasía , Género cambiante , Recuentos de la vida , Sobrenatural</p>
+            <p class="chapters">252 capítulos</p>
+        </div>
+
+        <div class="novel-card" data-title="Arcanista en otro mundo">
+            <img src="img/portada10.png" alt="Portada de novela">
+            <h3>Arcanista en otro mundo</h3>
+            <p class="rating">⭐⭐⭐⭐⭐</p>
+            <p class="genre">Novela Inglesa - Fantasía , Acción , Aventura , Misterio , Sobrenatural</p>
+            <p class="chapters">55 capítulos</p>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>IRIMANnovel.com</p>
+                <p>Lee libros y novelas gratis en línea</p>
+            </div>
+            <div class="footer-left">
+                <p>Contacto - Mapa del sitio</p>
+                <p>Política de privacidad y condiciones de uso</p>
+            </div>
+        </div>
+    </footer>
+        <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/script1.js"></script>
+
+</body>
+</html>
