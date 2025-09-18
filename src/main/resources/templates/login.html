@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	
+</head>
+<body>
+	<div class="main">  
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form id="loginForm" onsubmit="return false;">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="text" name="usuario" id="usuario" placeholder="Usuario" required="">
+					<input type="password" name="password" id="password" placeholder="Password" required="">
+					<button type="submit">Iniciar Sesion</button>
+					<div id="mensaje" style="color:red; text-align:center; margin-top:10px;"></div>
+					<a href="/registrarse" style="color: white; display: flex; justify-content: center;">Registrarse</a>
+					<a href="/" style="color: white; display: flex; justify-content: center; margin-top: 15px;">Volver al Principal</a>
+				</form>
+			</div>
+	</div>
+
+	<script>
+	document.getElementById('loginForm').onsubmit = function(e) {
+	    e.preventDefault();
+	    var usuario = document.getElementById('usuario').value;
+	    var password = document.getElementById('password').value;
+	    var mensaje = document.getElementById('mensaje');
+	    fetch('/login', {
+	        method: 'POST',
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+	        body: `usuario=${encodeURIComponent(usuario)}&password=${encodeURIComponent(password)}`
+	    })
+	    .then(resp => resp.text())
+	    .then(resp => {
+	        if (resp === 'ok') {
+	            window.location.href = '/perfil';
+	        } else {
+	            mensaje.textContent = 'Usuario o contraseña incorrectos';
+	        }
+	    });
+	};
+	</script>
+</body>
+</html>

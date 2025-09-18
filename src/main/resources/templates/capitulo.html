@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${capitulo.titulo}">Capítulo</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles1.css">
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="/css/generos.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/responsive.css" rel="stylesheet" />
+    <style>
+        .capitulo-header {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.2rem;
+            color: #7c4dff;
+            font-family: 'Caveat', cursive;
+        }
+        .capitulo-breadcrumb {
+            color: #2196f3;
+            margin: 20px 0 10px 0;
+            text-align: center;
+        }
+        .capitulo-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .capitulo-nav .btn {
+            min-width: 120px;
+            font-size: 1.1rem;
+        }
+        .capitulo-select {
+            min-width: 250px;
+            font-size: 1.1rem;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .capitulo-contenido {
+            max-width: 800px;
+            margin: 30px auto;
+            font-size: 1.2rem;
+            color: #222;
+            text-align: left;
+        }
+        .capitulo-titulo {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="capitulo-breadcrumb">
+        <a href="/" style="color:#2196f3;">Hogar</a>
+        &gt; <a th:href="@{'/novelas/pagina/' + ${novela.idNovela}}" style="color:#2196f3;" th:text="${novela.titulo}">Novela</a>
+        &gt; <span th:text="'CAPITULO ' + ${capitulo.numero}">CAPITULO X</span>
+    </div>
+
+    <div class="capitulo-header" th:text="${capitulo.titulo}">Título del capítulo</div>
+
+    <div class="capitulo-nav">
+        <a th:href="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + (${capitulo.numero - 1})}"
+           th:classappend="${capitulo.numero == 1} ? 'disabled' : ''"
+           class="btn btn-primary"
+           th:if="${capitulo.numero > 1}">Anterior</a>
+        <button class="btn btn-primary" th:if="${capitulo.numero == 1}" disabled>Anterior</button>
+
+        <select class="capitulo-select"
+                onchange="location = this.value;">
+            <option th:each="c : ${capitulos}"
+                    th:value="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + ${c.numero}}"
+                    th:text="'Capítulo ' + ${c.numero} + ' | ' + ${c.titulo}"
+                    th:selected="${c.numero == capitulo.numero}">
+            </option>
+        </select>
+
+        <a th:href="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + (${capitulo.numero + 1})}"
+           th:classappend="${capitulo.numero == #lists.size(capitulos)} ? 'disabled' : ''"
+           class="btn btn-primary"
+           th:if="${capitulo.numero < #lists.size(capitulos)}">Siguiente</a>
+        <button class="btn btn-primary" th:if="${capitulo.numero == #lists.size(capitulos)}" disabled>Siguiente</button>
+    </div>
+
+    <div class="capitulo-titulo" th:text="'Capítulo ' + ${capitulo.numero} + ' | ' + ${capitulo.titulo}"></div>
+    <div class="capitulo-contenido" th:utext="${capitulo.contenido}">CONTENIDO DEL CAPITULO</div>
+
+    <div class="capitulo-nav">
+        <a th:href="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + (${capitulo.numero - 1})}"
+           th:classappend="${capitulo.numero == 1} ? 'disabled' : ''"
+           class="btn btn-primary"
+           th:if="${capitulo.numero > 1}">Anterior</a>
+        <button class="btn btn-primary" th:if="${capitulo.numero == 1}" disabled>Anterior</button>
+
+        <select class="capitulo-select"
+                onchange="location = this.value;">
+            <option th:each="c : ${capitulos}"
+                    th:value="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + ${c.numero}}"
+                    th:text="'Capítulo ' + ${c.numero} + ' | ' + ${c.titulo}"
+                    th:selected="${c.numero == capitulo.numero}">
+            </option>
+        </select>
+
+        <a th:href="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + (${capitulo.numero + 1})}"
+           th:classappend="${capitulo.numero == #lists.size(capitulos)} ? 'disabled' : ''"
+           class="btn btn-primary"
+           th:if="${capitulo.numero < #lists.size(capitulos)}">Siguiente</a>
+        <button class="btn btn-primary" th:if="${capitulo.numero == #lists.size(capitulos)}" disabled>Siguiente</button>
+    </div>
+
+    <div th:replace="~{fragments/header :: scripts}"></div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

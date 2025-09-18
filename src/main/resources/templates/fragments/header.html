@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Fragment</title>
+    <style>
+.logout-link {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+.logout-link:hover span {
+    color: #dc3545 !important;
+}
+</style>
+</head>
+<body>
+    <!-- Header Fragmento reutilizable -->
+    <header class="header" th:fragment="header">
+        <div class="menu-container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a href="/" class="logo">IRIMANnovel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mx-auto ">
+                        <div class="menu-option" id="categoriesToggle">
+                            <span class="arrow">▶</span> <p>Lista de Novelas</p>
+                        </div>
+                        <div class="menu-option" id="genresToggle">
+                            <span class="arrow">▶</span> <p>Géneros</p>
+                        </div>
+                        <li class="nav-links">
+                            <a th:href="@{/perfil}" title="Perfil">
+                                <img th:if="${session.usuarioLogueado != null and session.usuarioLogueado.imagenPerfil != null}"
+                                     th:src="@{${session.usuarioLogueado.imagenPerfil}}"
+                                     alt="Perfil" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+                                <i th:if="${session.usuarioLogueado == null or session.usuarioLogueado.imagenPerfil == null}"
+                                   class="fa fa-user-circle" style="font-size: 1.7em;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <th:block th:if="${session.usuarioLogueado != null}">
+                        <a href="javascript:void(0);" onclick="cerrarSesion()" class="logout-link">
+                            <span style="color:#fff !important; opacity:1 !important; font-size:0.8em;">Cerrar sesión</span>
+                        </a>
+                    </th:block>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scripts Fragmento reutilizable -->
+    <div th:fragment="scripts">
+         <!-- jQery -->
+         <script src="/js/jquery-3.4.1.min.js"></script>
+         <!-- popper js -->
+         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+         </script>
+         <!-- bootstrap js -->
+         <script src="/js/bootstrap.js"></script>
+         <!-- owl slider -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+         </script>
+         <!-- isotope js -->
+         <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+         <!-- nice select -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+         <!-- custom js -->
+         <script src="/js/custom.js"></script>
+     
+         <script src="/js/script.js"></script>
+         <script src="/js/script1.js"></script>
+     
+         <script>
+         function filterNovels() {
+             var input = document.getElementById("searchInput");
+             var filter = input.value.toLowerCase();
+             var cards = document.getElementsByClassName("novel-card");
+             for (var i = 0; i < cards.length; i++) {
+                 var title = cards[i].getAttribute("data-title") || "";
+                 if (title.toLowerCase().indexOf(filter) > -1) {
+                     cards[i].style.display = "";
+                 } else {
+                     cards[i].style.display = "none";
+                 }
+             }
+         }
+
+         function cerrarSesion() {
+             fetch('/logout', { method: 'POST' })
+                 .then(() => {
+                     window.location.href = '/';
+                 });
+         }
+         </script>
+    </div>
+</body>
+</html>
+     

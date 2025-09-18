@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - IRIMANnovel</title>
+    
+    <link rel="stylesheet" href="/css/styles1.css">
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="/css/generos.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Contenedor de géneros, inicialmente oculto -->
+    <div class="content-container" id="mainContent">
+        <!-- Sección de Géneros -->
+        <div class="content-section" id="genresContent">
+            <div class="genre-box">
+                <div class="genre-name">Acción</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Cambio de género</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Psicológico</div>
+            </div>
+            
+             <div class="genre-box">
+                <div class="genre-name">Un trozo de vida</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Adulto</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Harén</div>
+            </div>
+        </div>
+        
+        <!-- Sección de Categorías -->
+        <div class="content-section" id="categoriesContent">
+            <ul class="category-list">
+                <li class="category-item">Novelas populares</li>
+                <li class="category-item">Recién actualizadas</li>
+                <li class="category-item">Top semanal</li>
+                <li class="category-item">Completadas</li>
+                <li class="category-item">Recomendaciones</li>
+                <li class="category-item">Novelas cortas</li>
+                <li class="category-item">Clásicos</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-header" style="position: relative;">
+            <div style="display: inline-block; position: relative; cursor: pointer;" onclick="document.getElementById('imagenPerfil').click();">
+                <img th:src="${usuario.imagenPerfil != null ? usuario.imagenPerfil : 'https://via.placeholder.com/150'}" alt="Foto de perfil" class="profile-pic" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid white;">
+                <div style="position: absolute; top: 0; left: 0; width: 150px; height: 150px; background: rgba(0,0,0,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;" 
+                     onmouseover="this.style.opacity='1'" 
+                     onmouseout="this.style.opacity='0'">
+                    <span style="color: white; font-size: 18px;">Cambiar</span>
+                </div>
+            </div>
+            <input type="file" id="imagenPerfil" name="imagenPerfil" accept="image/*" style="display: none;" onchange="previewImage(this)">
+            <div class="profile-info">
+                <h1>Editar Perfil</h1>
+                <p>Modifica tu información personal</p>
+            </div>
+        </div>
+        
+        <div class="profile-content">
+            <div class="info-box" style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <h2 class="box-title" style="margin: 0;">Modifica tu información personal</h2>
+                    <!-- Imagen redonda eliminada -->
+                </div>
+                
+                <form id="editarForm">
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="nombreCompleto" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre Completo:</label>
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" th:value="${usuario.nombreCompleto}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="correo" style="display: block; margin-bottom: 5px; font-weight: bold;">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" th:value="${usuario.correo}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="usuario" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre de Usuario:</label>
+                        <input type="text" id="usuario" name="usuario" th:value="${usuario.nombreUsuario}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    </div>
+                    
+                    <div id="mensaje" style="color:red; text-align:center; margin:10px 0;"></div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Guardar Cambios</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='/perfil'">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/script1.js"></script>
+
+    <script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                // Actualizar la imagen de perfil grande
+                document.querySelector('.profile-pic').src = e.target.result;
+                // Actualizar la imagen redonda pequeña si existe
+                var mini = document.querySelector('.edit-profile-pic img');
+                if (mini) mini.src = e.target.result;
+                var headerMini = document.querySelector('.user-profile-pic img');
+                if (headerMini) headerMini.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    document.getElementById('editarForm').onsubmit = function(e) {
+        e.preventDefault();
+        var nombreCompleto = document.getElementById('nombreCompleto').value;
+        var correo = document.getElementById('correo').value;
+        var usuario = document.getElementById('usuario').value;
+        var imagenPerfil = document.getElementById('imagenPerfil').files[0];
+        var mensaje = document.getElementById('mensaje');
+        
+        var formData = new FormData();
+        formData.append('nombreCompleto', nombreCompleto);
+        formData.append('correo', correo);
+        formData.append('usuario', usuario);
+        if (imagenPerfil) {
+            formData.append('imagenPerfil', imagenPerfil);
+        }
+        
+        fetch('/actualizar-perfil', {
+            method: 'POST',
+            body: formData
+        })
+        .then(resp => resp.text())
+        .then(resp => {
+            if (resp === 'ok') {
+                window.location.href = '/perfil';
+            } else if (resp === 'usuario') {
+                mensaje.textContent = 'El nombre de usuario ya existe.';
+            } else if (resp === 'correo') {
+                mensaje.textContent = 'El correo ya está registrado.';
+            } else {
+                mensaje.textContent = 'Error al actualizar. Intenta de nuevo.';
+            }
+        });
+    };
+    </script>
+
+</body>
+</html> 

@@ -1,0 +1,206 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fbfc;
+}
+
+header {
+    background-color: #1a73e8;
+    padding: 10px 20px;
+    color: white;
+    font-size: 24px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 99;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    max-width: 1140px;
+    margin: 5px 10px;
+}
+
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: right;
+}
+
+.search-bar input {
+    border-radius: 5px;
+    border: none;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #f5a623;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: medium;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el checkbox que controla la visibilidad de los géneros */
+
+
+/* Container for novels */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Individual novel card */
+.novel-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.novel-card:hover {
+    transform: scale(1.05);
+}
+
+.novel-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.novel-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.rating {
+    font-size: 18px;
+    color: #f5a623;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.genre {
+    font-size: 14px;
+    color: #555;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.chapters {
+    font-size: 14px;
+    color: #777;
+    margin: 5px auto;
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 0px;
+    padding: 0 20px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    color: #555;
+    margin: 2px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.footer-right a {
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    margin-top: 5px;
+    margin: 1px;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for responsiveness */
+
+/* Mobile: Stack header elements and adjust grid layout */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .novel-card {
+        max-width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-left, .footer-right {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .footer-right a {
+        margin-top: 10px;
+    }
+}

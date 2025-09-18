@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+l
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form id="registroForm">
+					<label for="chk" aria-hidden="true">Registrarse</label>
+                    <input type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Nombre Completo" required="">
+					<input type="text" name="correo" id="correo" placeholder="Email" required="">
+					<input type="text" name="usuario" id="usuario" placeholder="Usuario" required="">
+					<input type="password" name="password" id="password" placeholder="Password" required="">
+					<button type="submit">Registrarse</button>
+                    <div id="mensaje" style="color:red; text-align:center; margin-top:10px;"></div>
+                    <a href="/login" style="color: white; display: flex; justify-content: center;">Volver al Login</a>
+				</form>
+			</div>
+
+	</div>
+<script>
+document.getElementById('registroForm').onsubmit = function(e) {
+    e.preventDefault();
+    var nombreCompleto = document.getElementById('nombreCompleto').value;
+    var correo = document.getElementById('correo').value;
+    var usuario = document.getElementById('usuario').value;
+    var password = document.getElementById('password').value;
+    var mensaje = document.getElementById('mensaje');
+    
+    fetch('/registrarse', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `nombreCompleto=${encodeURIComponent(nombreCompleto)}&correo=${encodeURIComponent(correo)}&usuario=${encodeURIComponent(usuario)}&password=${encodeURIComponent(password)}`
+    })
+    .then(resp => resp.text())
+    .then(resp => {
+        if (resp === 'ok') {
+            window.location.href = '/login';
+        } else if (resp === 'usuario') {
+            mensaje.textContent = 'El nombre de usuario ya existe.';
+        } else if (resp === 'correo') {
+            mensaje.textContent = 'El correo ya está registrado.';
+        } else if (resp === 'nombreCompleto') {
+            mensaje.textContent = 'El nombre completo ya está registrado.';
+        } else {
+            mensaje.textContent = 'Error al registrar. Intenta de nuevo.';
+        }
+    });
+};
+</script>
+</body>
+</html>

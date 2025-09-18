@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRIMANnovel</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles1.css">
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="/css/generos.css">
+
+    <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom styles -->
+  <link href="/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Header con el nombre de la página, buscador y lista de novelas -->
+    <header class="header">
+        
+        <div class="menu-container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a href="#" class="logo">IRIMANnovel</a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mx-auto ">
+                        <div class="menu-option" id="categoriesToggle">
+                            <span class="arrow">▶</span> <p>Lista de Novelas</p>
+                        </div>
+                                
+                        <div class="menu-option" id="genresToggle">
+                            <span class="arrow">▶</span> <p>Géneros</p>
+                        </div>
+                            
+                        <li class="nav-links">
+                            <a th:href="@{/perfil}" title="Perfil">
+                                <img th:if="${session.usuarioLogueado != null and session.usuarioLogueado.imagenPerfil != null}"
+                                     th:src="@{${session.usuarioLogueado.imagenPerfil}}"
+                                     alt="Perfil" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+                                <i th:if="${session.usuarioLogueado == null or session.usuarioLogueado.imagenPerfil == null}"
+                                   class="fa fa-user-circle" style="font-size: 1.7em;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                        
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Buscar novelas..." onkeyup="filterNovels()">
+                        <button>🔍</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenedor de géneros, inicialmente oculto -->
+        <div class="content-container" id="mainContent">
+        <!-- Sección de Géneros (restaurada a lista estática) -->
+        <div class="content-section" id="genresContent">
+            <div class="genre-box"><div class="genre-name">Acción</div></div>
+            <div class="genre-box"><div class="genre-name">Cambio de género</div></div>
+            <div class="genre-box"><div class="genre-name">Psicológico</div></div>
+            <div class="genre-box"><div class="genre-name">Un trozo de vida</div></div>
+            <div class="genre-box"><div class="genre-name">Adulto</div></div>
+            <div class="genre-box"><div class="genre-name">Harén</div></div>
+            <div class="genre-box"><div class="genre-name">Reencarnación</div></div>
+            <div class="genre-box"><div class="genre-name">Tizón</div></div>
+            <div class="genre-box"><div class="genre-name">Aventura</div></div>
+            <div class="genre-box"><div class="genre-name">Histórico</div></div>
+            <div class="genre-box"><div class="genre-name">Romance</div></div>
+            <div class="genre-box"><div class="genre-name">Deportes</div></div>
+            <div class="genre-box"><div class="genre-name">Comedia</div></div>
+            <div class="genre-box"><div class="genre-name">Horror</div></div>
+            <div class="genre-box"><div class="genre-name">Vida escolar</div></div>
+            <div class="genre-box"><div class="genre-name">Sobrenatural</div></div>
+            <div class="genre-box"><div class="genre-name">masia</div></div>
+            <div class="genre-box"><div class="genre-name">Drama</div></div>
+            <div class="genre-box"><div class="genre-name">Josei</div></div>
+            <div class="genre-box"><div class="genre-name">Ciencia ficción</div></div>
+            <div class="genre-box"><div class="genre-name">Tragedia</div></div>
+            <div class="genre-box"><div class="genre-name">Oriental</div></div>
+            <div class="genre-box"><div class="genre-name">Artes marciales</div></div>
+            <div class="genre-box"><div class="genre-name">Seinen</div></div>
+            <div class="genre-box"><div class="genre-name">Wuxia</div></div>
+            <div class="genre-box"><div class="genre-name">Ecchi</div></div>
+            <div class="genre-box"><div class="genre-name">Maduro</div></div>
+            <div class="genre-box"><div class="genre-name">Shojo</div></div>
+            <div class="genre-box"><div class="genre-name">Xianxia</div></div>
+            <div class="genre-box"><div class="genre-name">Fantasía</div></div>
+            <div class="genre-box"><div class="genre-name">Mecha</div></div>
+            <div class="genre-box"><div class="genre-name">Shounen Ai</div></div>
+            <div class="genre-box"><div class="genre-name">Xuanhuan</div></div>
+            <div class="genre-box"><div class="genre-name">Juego</div></div>
+            <div class="genre-box"><div class="genre-name">Misterio</div></div>
+            <div class="genre-box"><div class="genre-name">Shounen</div></div>
+            <div class="genre-box"><div class="genre-name">Yaoi</div></div>
+            <div class="genre-box"><div class="genre-name">Sistemática</div></div>
+            <div class="genre-box"><div class="genre-name">KILLI THESUN</div></div>
+            <div class="genre-box"><div class="genre-name">Jopella</div></div>
+        </div>
+        
+        <!-- Sección de Categorías -->
+        <div class="content-section" id="categoriesContent">
+            <ul class="category-list">
+                <li class="category-item">
+                    <a href="/novelas/populares" style="text-decoration:none; color:inherit;">Novelas populares</a>
+                </li>
+                <li class="category-item">
+                    <a href="/" style="text-decoration:none; color:inherit;">Todas las novelas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenedor de las novelas -->
+    <div class="container">
+        <div th:each="novela : ${novelas}">
+            <a th:href="@{'/novelas/pagina/' + ${novela.idNovela}}" style="text-decoration:none; color:inherit;">
+                <div class="novel-card" th:attr="data-title=${novela.titulo}">
+                    <img th:src="${novela.portadaUrl}" alt="Portada de novela">
+                    <h3 th:text="${novela.titulo}">Título de novela</h3>
+                    <p class="rating" th:text="${novela.rating}">⭐⭐⭐⭐☆</p>
+                    <p class="genre" th:text="${novela.descripcion}">Géneros</p>
+                    <p class="chapters" th:text="${novela.capitulos != null ? novela.capitulos + ' capítulos' : ''}">Capítulos</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>IRIMANnovel.com</p>
+                <p>Lee libros y novelas gratis en línea</p>
+            </div>
+            <div class="footer-left">
+                <p>Contacto - Mapa del sitio</p>
+                <p>Política de privacidad y condiciones de uso</p>
+            </div>
+        </div>
+    </footer>
+        <!-- jQery -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="/js/custom.js"></script>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/script1.js"></script>
+
+    <script>
+    function filterNovels() {
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toLowerCase();
+        var cards = document.getElementsByClassName("novel-card");
+        for (var i = 0; i < cards.length; i++) {
+            var title = cards[i].getAttribute("data-title") || "";
+            if (title.toLowerCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+</body>
+</html>

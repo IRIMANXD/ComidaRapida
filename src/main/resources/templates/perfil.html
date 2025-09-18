@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Otros suben de nivel, pero yo sigo con el cultivo!</title>
+    
+    <link rel="stylesheet" href="/css/styles1.css">
+
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="/css/generos.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+
+    <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link href="/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Contenedor de géneros, inicialmente oculto -->
+        <div class="content-container" id="mainContent">
+        <!-- Sección de Géneros -->
+        <div class="content-section" id="genresContent">
+            <div class="genre-box">
+                <div class="genre-name">Acción</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Cambio de género</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Psicológico</div>
+            </div>
+            
+             <div class="genre-box">
+                <div class="genre-name">Un trozo de vida</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Adulto</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Harén</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Reencarnación</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Tizón</div>
+            </div>
+            
+            <div class="genre-box">
+                <div class="genre-name">Aventura</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Histórico</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Romance</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Deportes</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Comedia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Horror</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Vida escolar</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Sobrenatural</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">masia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Drama</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Josei</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Ciencia ficción</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Tragedia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Oriental</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Artes marciales</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Seinen</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Wuxia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Ecchi</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Maduro</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Shojo</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Xianxia</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Fantasía</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Mecha</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Shounen Ai</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Xuanhuan</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Juego</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Misterio</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Shounen</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Yaoi</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Sistemática</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">KILLI THESUN</div>
+            </div>
+
+            <div class="genre-box">
+                <div class="genre-name">Jopella</div>
+            </div>
+        </div>
+        
+        <!-- Sección de Categorías -->
+        <div class="content-section" id="categoriesContent">
+            <ul class="category-list">
+                <li class="category-item">
+                    <a href="/novelas/populares" style="text-decoration:none; color:inherit;">Novelas populares</a>
+                </li>
+                <li class="category-item">
+                    <a href="/" style="text-decoration:none; color:inherit;">Todas las novelas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img th:src="${usuario.imagenPerfil != null ? usuario.imagenPerfil : 'https://via.placeholder.com/150'}" alt="Foto de perfil" class="profile-pic">
+            <div class="profile-info">
+                <h1 th:text="${usuario.nombreUsuario}">Nombre de Usuario</h1>
+                <p th:text="'Miembro desde ' + ${#temporals.format(usuario.fechaRegistro, 'yyyy')}">Miembro desde 2023</p>
+            </div>
+        </div>
+        
+        <div class="profile-content">
+            <div class="info-box">
+                <h2 class="box-title">Información del Usuario</h2>
+                
+                <div class="info-item">
+                    <span class="info-label">Nombre de usuario</span>
+                    <span class="info-value" th:text="${usuario.nombreUsuario}">usuario123</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Nombre completo</span>
+                    <span class="info-value" th:text="${usuario.nombreCompleto}">Nombre Completo</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Correo electrónico</span>
+                    <span class="info-value" th:text="${usuario.correo}">usuario@ejemplo.com</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Fecha de registro</span>
+                    <span class="info-value" th:text="${#temporals.format(usuario.fechaRegistro, 'dd MMMM, yyyy')}">15 de Enero, 2023</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Ubicación</span>
+                    <span class="info-value">Ciudad, País</span>
+                </div>
+                
+                <div class="profile-actions" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                    <button class="btn btn-primary" onclick="window.location.href='/editar-perfil'">Editar Perfil</button>
+                    <button class="btn btn-danger" onclick="eliminarCuenta()">Eliminar cuenta</button>
+                </div>
+            </div>
+            
+            <div class="favorites-box">
+                <h2 class="box-title">Mi Biblioteca</h2>
+                
+                <div class="favorites-list">
+                    <div class="favorite-item" th:each="novela : ${biblioteca}">
+                        <div class="novel-item">
+                            <div class="novel-text">
+                                <h3 class="novel-title">
+                                    <a th:href="@{'/novelas/pagina/' + ${novela.idNovela}}" th:text="${novela.titulo}"></a>
+                                </h3>
+                                <p class="novel-author" th:text="${novela.autor}">Autor</p>
+                                <div class="novel-stats">
+                                    <span class="rating" th:text="${novela.rating + '★'}">4.5★</span>
+                                    <span class="chapters" th:text="${novela.capitulos + ' capítulos'}">10 capítulos</span>
+                                </div>
+                            </div>
+                            <div class="novel-cover-small">
+                                <img th:src="${novela.portadaUrl != null ? novela.portadaUrl : '/img/portada1.png'}" 
+                                     th:alt="${novela.titulo}" 
+                                     class="cover-image-small">
+                                <span class="star selected"
+                                      th:data-novela-id="${novela.idNovela}">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:if="${#lists.isEmpty(biblioteca)}" class="empty-library">
+                        <div class="empty-icon">📚</div>
+                        <p>No tienes novelas en tu biblioteca.</p>
+                        <a href="/" class="btn btn-primary">Explorar novelas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    
+    <!-- Scripts -->
+    <div th:replace="~{fragments/header :: scripts}"></div>
+
+</body>
+</html>
+
+<script>
+function eliminarCuenta() {
+    if (confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.')) {
+        fetch('/eliminar-cuenta', { method: 'POST' })
+            .then(resp => resp.text())
+            .then(resp => {
+                if (resp === 'ok') {
+                    window.location.href = '/';
+                } else {
+                    alert('Error al eliminar la cuenta.');
+                }
+            });
+    }
+}
+
+function cerrarSesion() {
+    fetch('/logout', { method: 'POST' })
+        .then(() => {
+            window.location.href = '/';
+        });
+}
+</script>
+
+<style>
+.star {
+    color: #FFD600;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+}
+.star.not-selected {
+    color: #bbb;
+}
+
+/* Estilos para la biblioteca con portadas */
+.favorites-list {
+    margin-top: 20px;
+}
+
+.favorite-item {
+    margin-bottom: 16px;
+}
+
+.novel-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.novel-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.novel-text {
+    flex: 1;
+    margin-right: 16px;
+}
+
+.novel-title {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.novel-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.novel-title a:hover {
+    color: #007bff;
+}
+
+.novel-author {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.novel-stats {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+}
+
+.rating {
+    color: #FFD600;
+    font-weight: 600;
+}
+
+.chapters {
+    color: #888;
+    background: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.novel-cover-small {
+    position: relative;
+    width: 60px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.cover-image-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.2s;
+}
+
+.novel-item:hover .cover-image-small {
+    transform: scale(1.05);
+}
+
+.novel-cover-small .star {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #FFD600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.novel-cover-small .star:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.empty-library {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.empty-library p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.empty-library .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.empty-library .btn:hover {
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .novel-item {
+        padding: 10px 12px;
+    }
+    
+    .novel-text {
+        margin-right: 12px;
+    }
+    
+    .novel-title {
+        font-size: 14px;
+    }
+    
+    .novel-author {
+        font-size: 12px;
+    }
+    
+    .novel-stats {
+        font-size: 11px;
+        gap: 8px;
+    }
+    
+    .novel-cover-small {
+        width: 50px;
+        height: 65px;
+    }
+    
+    .novel-cover-small .star {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+</style>
+
+<script>
+document.querySelectorAll('.star').forEach(function(star) {
+    star.addEventListener('click', function() {
+        const novelaId = this.getAttribute('data-novela-id');
+        const isFavorite = this.classList.contains('selected');
+        
+        // Lógica visual inmediata
+        if (isFavorite) {
+            this.classList.remove('selected');
+            this.innerHTML = '☆';
+        } else {
+            this.classList.add('selected');
+            this.innerHTML = '★';
+        }
+        
+        // Lógica backend (AJAX)
+        fetch('/api/biblioteca/favorito', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'same-origin',
+            body: JSON.stringify({ novelaId, favorito: !isFavorite })
+        })
+        .then(response => response.text())
+        .then(result => {
+            if (result === 'error') {
+                // Revertir cambios visuales si hay error
+                if (isFavorite) {
+                    this.classList.add('selected');
+                    this.innerHTML = '★';
+                } else {
+                    this.classList.remove('selected');
+                    this.innerHTML = '☆';
+                }
+                alert('Error al actualizar favoritos');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Revertir cambios visuales si hay error
+            if (isFavorite) {
+                this.classList.add('selected');
+                this.innerHTML = '★';
+            } else {
+                this.classList.remove('selected');
+                this.innerHTML = '☆';
+            }
+            alert('Error al actualizar favoritos');
+        });
+    });
+});
+</script>

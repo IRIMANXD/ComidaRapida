@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${novela.titulo}">Detalle de Novela</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles1.css">
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="/css/generos.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/responsive.css" rel="stylesheet" />
+    <style>
+        .novela-header {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #7c4dff;
+            font-family: 'Caveat', cursive;
+        }
+        .novela-card-detalle {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 600px;
+            margin: 30px auto 0 auto;
+        }
+        .novela-card-detalle img {
+            width: 140px;
+            border-radius: 10px;
+        }
+        .novela-info-detalle {
+            flex: 1;
+        }
+        .novela-rating {
+            color: #ffb400;
+            font-size: 1.3rem;
+            margin-top: 8px;
+        }
+        .novela-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .novela-estado {
+            color: #2196f3;
+            font-size: 1rem;
+        }
+        .novela-resumen-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .novela-resumen-section .novela-meta {
+            margin-bottom: 0;
+        }
+        .novela-resumen {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 4.5em;
+            transition: max-height 0.3s;
+            position: relative;
+        }
+        .novela-resumen.expanded {
+            -webkit-line-clamp: unset;
+            max-height: 1000px;
+            overflow: visible;
+        }
+        .novela-botones {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .novela-botones .btn {
+            min-width: 180px;
+            font-size: 1.1rem;
+        }
+        .capitulos-lista {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .capitulos-lista h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .capitulos-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .capitulo-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 16px 24px;
+            min-width: 260px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .capitulo-card:hover {
+            box-shadow: 0 4px 16px rgba(124,77,255,0.15);
+            background: #f7f5ff;
+        }
+        .capitulo-card a {
+            color: #3f51b5;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .capitulo-card a:hover {
+            text-decoration: underline;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    
+    <div class="novela-header" th:text="${novela.titulo}">¡Otros suben de nivel, pero yo sigo con el cultivo!</div>
+    <div class="novela-card-detalle">
+        <img th:src="${novela.portadaUrl}" alt="Portada de novela">
+        <div class="novela-info-detalle">
+            <div><b>Autor:</b> <span th:text="${novela.autor}">Autor</span></div>
+            <div><b>Géneros:</b> <span th:text="${#strings.arrayJoin(novela.generos.?[nombreGenero], ', ')}">Géneros</span></div>
+            <div class="novela-meta"><b>Tipo:</b> Novela web</div>
+            <div class="novela-meta"><b>Origen:</b> Novela china</div>
+            <div class="novela-estado"><b>Estado:</b> En curso</div>
+            <div class="novela-rating" th:text="${novela.rating}">⭐⭐⭐⭐☆</div>
+            <div style="color:#ff5722; font-size:1rem; margin-top:5px;">4.4 / 5 (34 votos)</div>
+        </div>
+    </div>
+    <div class="novela-resumen-section">
+        <div class="novela-meta" th:text="${novela.descripcion}">Novela China - Oriental , Fantasía , Acción , Aventura</div>
+        <div class="novela-meta" th:text="${novela.capitulos + ' capítulos'}">1066 capítulos</div>
+        <h2 style="margin: 20px 0 10px 0;">Resumen</h2>
+        <div class="novela-resumen" id="novelaResumen" th:text="${novela.resumen}">Resumen de la novela...</div>
+        <button class="btn btn-success" id="toggleResumenBtn" onclick="toggleResumen()">Mostrar Contenido</button>
+    </div>
+    <div class="novela-botones">
+        <button class="btn" id="addToLibraryBtn" th:data-novela-id="${novela.idNovela}" 
+                th:class="${enFavoritos ? 'btn-danger' : 'btn-primary'}"
+                th:text="${enFavoritos ? 'Quitar de la biblioteca' : 'Añadir a la biblioteca'}">
+            Añadir a la biblioteca
+        </button>
+        <a class="btn btn-primary"
+           th:href="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + ${capitulos[0].numero}}">Leer primero</a>
+    </div>
+    <div class="capitulos-lista">
+        <h3>Lista de capítulos</h3>
+        <div class="capitulos-grid">
+            <div class="capitulo-card" th:each="capitulo : ${capitulos}">
+                <a th:href="@{'/novelas/pagina/' + ${novela.idNovela} + '/capitulo/' + ${capitulo.numero}}"
+                   th:text="'Capítulo ' + ${capitulo.numero} + ' | ' + ${capitulo.titulo}"></a>
+            </div>
+        </div>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    
+    <!-- Scripts -->
+    <div th:replace="~{fragments/header :: scripts}"></div>
+    <script>
+const addBtn = document.getElementById('addToLibraryBtn');
+if (addBtn) {
+    addBtn.addEventListener('click', function() {
+        fetch('/api/usuario/logueado', { credentials: 'same-origin' })
+            .then(resp => resp.text())
+            .then(isLogged => {
+                if (isLogged === 'si') {
+                    // Usuario logueado, permite agregar/quitar
+                    const novelaId = this.getAttribute('data-novela-id');
+                    const isAdded = this.textContent.includes('Quitar');
+                    
+                    // Cambio visual inmediato
+                    if (isAdded) {
+                        this.textContent = 'Añadir a la biblioteca';
+                        this.classList.remove('btn-danger');
+                        this.classList.add('btn-primary');
+                    } else {
+                        this.textContent = 'Quitar de la biblioteca';
+                        this.classList.remove('btn-primary');
+                        this.classList.add('btn-danger');
+                    }
+                    
+                    // Llamada al backend
+                    fetch('/api/biblioteca/favorito', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        credentials: 'same-origin',
+                        body: JSON.stringify({ novelaId, favorito: !isAdded })
+                    }).then(resp => resp.text())
+                      .then(resp => {
+                        if (resp === 'error') {
+                            // Revertir cambios si hay error
+                            if (isAdded) {
+                                this.textContent = 'Quitar de la biblioteca';
+                                this.classList.remove('btn-primary');
+                                this.classList.add('btn-danger');
+                            } else {
+                                this.textContent = 'Añadir a la biblioteca';
+                                this.classList.remove('btn-danger');
+                                this.classList.add('btn-primary');
+                            }
+                            alert('Error al actualizar la biblioteca');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Revertir cambios si hay error
+                        if (isAdded) {
+                            this.textContent = 'Quitar de la biblioteca';
+                            this.classList.remove('btn-primary');
+                            this.classList.add('btn-danger');
+                        } else {
+                            this.textContent = 'Añadir a la biblioteca';
+                            this.classList.remove('btn-danger');
+                            this.classList.add('btn-primary');
+                        }
+                        alert('Error al actualizar la biblioteca');
+                    });
+                } else {
+                    window.location.href = '/login';
+                }
+            });
+    });
+}
+
+function toggleResumen() {
+    const resumen = document.getElementById('novelaResumen');
+    const btn = document.getElementById('toggleResumenBtn');
+    if (resumen.classList.contains('expanded')) {
+        resumen.classList.remove('expanded');
+        btn.textContent = 'Mostrar Contenido';
+    } else {
+        resumen.classList.add('expanded');
+        btn.textContent = 'Ocultar Contenido';
+    }
+}
+</script>
+</body>
+</html> 
